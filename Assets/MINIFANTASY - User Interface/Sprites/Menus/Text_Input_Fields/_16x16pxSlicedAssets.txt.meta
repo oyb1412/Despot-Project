@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b0d434c42bb64c14dacb5e96e93ed5fe
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 248871
+  packageName: MINIFANTASY - User Interface
+  packageVersion: 1.0.0
+  assetPath: Assets/MINIFANTASY - User Interface/Sprites/Menus/Text_Input_Fields/_16x16pxSlicedAssets.txt
+  uploadId: 569385
