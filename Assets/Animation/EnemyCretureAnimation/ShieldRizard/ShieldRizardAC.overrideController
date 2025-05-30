@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ShieldRizardAC
+  m_Controller: {fileID: 9100000, guid: 6c6f7e803115efd40a46676227fdf765, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: ecd6f9e6831eb0d488725a8fe4c74351, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8951da10cb80fb14d89633d07556314f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 79d49f0bd7a88f44e901cea3e90c83b2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6da30950ae799a6458e0af416c07c72d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6fa2496684109bd4692e63d741af0a25, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 78ecb3a86726b5a43b5110e962df20e5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 2b135136a37195f4fb17680c71cf6212, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cff1c4e490ebf664ebdbea35921d6eb7, type: 2}

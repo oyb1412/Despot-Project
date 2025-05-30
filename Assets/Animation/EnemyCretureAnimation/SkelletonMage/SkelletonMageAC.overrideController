@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SkelletonMageAC
+  m_Controller: {fileID: 9100000, guid: 6c6f7e803115efd40a46676227fdf765, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: ecd6f9e6831eb0d488725a8fe4c74351, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1924fa34f177f674b81d15581f75c6ac, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 79d49f0bd7a88f44e901cea3e90c83b2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b32039b0fffa45343a8c2916a83f360a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6fa2496684109bd4692e63d741af0a25, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f35607395106e1044a0885a4a41d3ee6, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 2b135136a37195f4fb17680c71cf6212, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 69c0f3751d204c54d88791d955314807, type: 2}
