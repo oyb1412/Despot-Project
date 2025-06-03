@@ -5,9 +5,11 @@ public enum BattleStateType {
     BattleWait,
     Battle,
     CanChangeMap,
+    ChangeNextFloor,
     Shop,
     Lose,
     SelectItem,
+    SelectBossItem,
     Count,
 }
 
@@ -21,6 +23,8 @@ public class BattleStateManager : MonoSingleton<BattleStateManager>
     }
 
     public void ChangeType(BattleStateType type) {
+        if(CurrentType == type) return;
+
         CurrentType = type;
 
         switch (CurrentType) {
@@ -80,8 +84,18 @@ public class BattleStateManager : MonoSingleton<BattleStateManager>
                 break;
             case BattleStateType.SelectItem:
                 UIManager.Instance.SetGameLog("보상 중 하나를 선택하세요!");
-
+                RewardManager.Instance.SetReward();
                 //아이템 고르면, canchangemap으로 변경
+                break;
+
+            case BattleStateType.SelectBossItem:
+                UIManager.Instance.SetGameLog("보스가 남긴 강력한 보상입니다!");
+
+                //아이템 고르면, ChangeNextFloor으로 변경
+                break;
+            case BattleStateType.ChangeNextFloor:
+                //사다리 내려오는 연출?
+                //사다리 선택하면 currentfloor ++ 하고 다음 층으로 이동.
                 break;
 
         }

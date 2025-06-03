@@ -7,6 +7,12 @@ public class UIManager : MonoSingleton<UIManager>
 {
     public GameObject FightButton;
     public GameLog gameLog;
+    public HoverUi hoverUI;
+    public Canvas WorldCanvas;
+
+    public void SetHoverUI(bool isHover, string content, Vector3 pos) {
+        hoverUI.SetHoverUI(isHover, content, pos);
+    }
 
     public void SetGameLog(string content) {
         gameLog.SetLog(content);

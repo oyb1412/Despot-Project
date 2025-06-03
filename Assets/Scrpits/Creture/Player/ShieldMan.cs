@@ -4,6 +4,7 @@ public class ShieldMan : PlayerCretureBase
 {
     protected override void Awake() {
         base.Awake();
+        Bundle = CretureBundle.Melee;
         AttackInterface = new MeleeAttack();
     }
 

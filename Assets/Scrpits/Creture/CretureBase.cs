@@ -29,7 +29,7 @@ public abstract class CretureBase : MonoBehaviour
     public Animator animator;
     public CretureState State;
     public AttackInterface AttackInterface;
-
+    public CretureBundle Bundle;
     public bool IsPlayer;
     public CretureBase CurrentTarget;
     private Coroutine battleRoutine;
@@ -49,6 +49,18 @@ public abstract class CretureBase : MonoBehaviour
         battleRoutine = StartCoroutine(BattleLoop());
     }
 
+    public void StopBattle() {
+        animator.SetBool("Move", false);
+        State = CretureState.Idle;
+
+        if (IsPlayer)
+            BattleStateManager.Instance.ChangeType(BattleStateType.SelectItem);
+        else
+            BattleStateManager.Instance.ChangeType(BattleStateType.Lose);
+
+        StopCoroutine(battleRoutine);
+    }
+
     private IEnumerator BattleLoop() {
         while (true) {
             if (CurrentHp < 0)
@@ -57,16 +69,6 @@ public abstract class CretureBase : MonoBehaviour
             yield return StartCoroutine(SearchTarget());
 
             if (CurrentTarget == null) {
-                animator.SetBool("Move", false);
-                State = CretureState.Idle;
-
-                if(IsPlayer)
-                    BattleStateManager.Instance.ChangeType(BattleStateType.SelectItem);
-                else
-                    BattleStateManager.Instance.ChangeType(BattleStateType.Lose);
-
-                StopCoroutine(battleRoutine);
-
                 yield break;
             }
 
@@ -145,6 +147,26 @@ public abstract class CretureBase : MonoBehaviour
     public void TakeDamage(int amount) {
         CurrentHp -= amount;
         if(CurrentHp <= 0 && State != CretureState.Die) {
+            if(IsPlayer) {
+                PlayerCretureManager.Instance.UnitSlotManager.RemoveUnit(Bundle, gameObject);
+                if(PlayerCretureManager.Instance.UnitSlotManager.GetTotalUnitCount() <= 0) {
+                    var enemyList = EnemyCretureManager.Instance.UnitSlotManager.GetAllUnit();
+                    foreach (var item in enemyList) {
+                        item.GetComponent<EnemyCretureBase>().StopBattle();
+                    }
+                }
+            }
+            else {
+                EnemyCretureManager.Instance.UnitSlotManager.RemoveUnit(Bundle, gameObject);
+                if (EnemyCretureManager.Instance.UnitSlotManager.GetTotalUnitCount() <= 0) {
+                    var playerList = PlayerCretureManager.Instance.UnitSlotManager.GetAllUnit();
+                    foreach (var item in playerList) {
+                        item.GetComponent<PlayerCretureBase>().StopBattle();
+                    }
+                }
+            }
+
+            
             State = CretureState.Die;
             animator.SetBool("Move", false);
             animator.SetTrigger("Die");

@@ -5,6 +5,7 @@ public class VampireMage : EnemyCretureBase {
 
     protected override void Awake() {
         base.Awake();
+        Bundle = CretureBundle.Mage;
         AttackInterface = new VampireMagic(projectilePrefab);
     }
     public override void Attack(CretureBase my, CretureBase target) {

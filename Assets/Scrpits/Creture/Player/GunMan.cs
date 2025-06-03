@@ -5,6 +5,7 @@ public class GunMan : PlayerCretureBase
     public GameObject projectilePrefab;
     protected override void Awake() {
         base.Awake();
+        Bundle = CretureBundle.Archor;
         AttackInterface = new RangeAttack(projectilePrefab);
     }
 

@@ -5,6 +5,7 @@ public class CatGun : EnemyCretureBase {
 
     protected override void Awake() {
         base.Awake();
+        Bundle = CretureBundle.Archor;
         AttackInterface = new RangeAttack(projectilePrefab);
     }
     public override void Attack(CretureBase my, CretureBase target) {

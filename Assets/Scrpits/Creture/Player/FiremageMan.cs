@@ -5,6 +5,7 @@ public class FiremageMan : PlayerCretureBase
     public GameObject projectilePrefab;
     protected override void Awake() {
         base.Awake();
+        Bundle = CretureBundle.Mage;
         AttackInterface = new RangeAttack(projectilePrefab);
     }
 

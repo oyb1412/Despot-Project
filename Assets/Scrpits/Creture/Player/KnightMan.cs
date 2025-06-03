@@ -3,6 +3,7 @@ using UnityEngine;
 public class KnightMan : PlayerCretureBase {
     protected override void Awake() {
         base.Awake();
+        Bundle = CretureBundle.Melee;
         AttackInterface = new MeleeAttack();
     }
 

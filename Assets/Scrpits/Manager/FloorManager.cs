@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class FloorManager : MonoSingleton<FloorManager>
 {
+    public int CurrentFloor = 1;
     void Start()
     {
         MapManager.Instance.GenerateMap();
